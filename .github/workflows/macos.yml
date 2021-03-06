@@ -1,0 +1,17 @@
+name: Linux CI
+on: [push, pull_request]
+jobs:
+  ci:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+    - uses: microsoft/playwright-github-action@v1
+    - name: perl -V
+      run: perl -V
+    - name: Install dependencies
+      run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
+    - name: Run tests
+      run: |
+        npm install
+        npm test
