@@ -6,8 +6,8 @@ let browser;
 
 describe('Login ok, not ok', () => {
   beforeEach(async () => {
-    browser = await playwright['chromium'].launch({ headless: false });
-    // browser = await playwright['chromium'].launch();
+    // browser = await playwright['chromium'].launch({ headless: false });
+    browser = await playwright['chromium'].launch();
   });
   afterEach(async () => {
     await browser.close();
