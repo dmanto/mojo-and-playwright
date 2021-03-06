@@ -1,0 +1,21 @@
+name: Linux CI
+on: [push, pull_request]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    container:
+      image: perl:v5.32
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+    - uses: microsoft/playwright-github-action@v1
+    - name: perl -V
+      run: perl -V
+    - name: Install dependencies
+      run: |
+        cpanm -n App::cpanminus ExtUtils::MakeMaker
+        cpanm -n --installdeps .
+    - name: Run tests
+      run: npm test
+      env:
+        HARNESS_OPTIONS: j3
