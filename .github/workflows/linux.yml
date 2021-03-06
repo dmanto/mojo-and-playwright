@@ -2,9 +2,7 @@ name: Linux CI
 on: [push, pull_request]
 jobs:
   ci:
-    runs-on: ubuntu-latest
-    container:
-      image: perl:5.32
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
@@ -13,9 +11,12 @@ jobs:
       run: perl -V
     - name: Install dependencies
       run: |
-        cpanm -n App::cpanminus ExtUtils::MakeMaker
-        cpanm -n --installdeps .
+        sudo apt-get update -y && sudo apt-get install build-essential cpanminus
+        sudo cpanm -n --installdeps .
     - name: Run tests
-      run: npm test
+      run: |
+        npm install
+        npm test
       env:
+        PERL5LIB: ${{ github.workspace }}/local/lib/perl5
         HARNESS_OPTIONS: j3
