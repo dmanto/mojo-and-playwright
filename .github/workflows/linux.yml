@@ -4,7 +4,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     container:
-      image: perl:v5.32
+      image: perl:5.32
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
