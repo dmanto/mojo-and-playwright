@@ -1,0 +1,28 @@
+{
+  "name": "mojo-and-playwright",
+  "version": "1.0.0",
+  "description": "Mojolicios Hello World, showing how to test JS with mocha and playwright",
+  "main": "index.js",
+  "scripts": {
+    "mocha-esm": "mocha -r esm",
+    "server": "perl lite.pl daemon -l http://localhost:9997",
+    "test": "run-p -r server mocha-esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmanto/mojo-and-playwright.git"
+  },
+  "author": "Daniel Mantovani",
+  "license": "Artistic-2.0",
+  "bugs": {
+    "url": "https://github.com/dmanto/mojo-and-playwright/issues"
+  },
+  "homepage": "https://github.com/dmanto/mojo-and-playwright#readme",
+  "devDependencies": {
+    "chai": "^4.3.3",
+    "esm": "^3.2.25",
+    "mocha": "^8.3.0",
+    "npm-run-all": "^4.1.5",
+    "playwright": "^1.9.1"
+  }
+}
