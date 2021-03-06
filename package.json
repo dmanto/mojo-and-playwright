@@ -4,7 +4,7 @@
   "description": "Mojolicios Hello World, showing how to test JS with mocha and playwright",
   "main": "index.js",
   "scripts": {
-    "mocha-esm": "mocha -r esm",
+    "mocha-esm": "mocha -r esm --timeout 15000",
     "server": "perl lite.pl daemon -l http://localhost:9997",
     "test": "run-p -r server mocha-esm"
   },

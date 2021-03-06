@@ -10,8 +10,8 @@ jobs:
     - name: perl -V
       run: perl -V
     - name: Install dependencies
-      run: curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
-    - name: Run tests
       run: |
+        curl -sL https://git.io/cpm | perl - install -g --show-build-log-on-failure
         npm install
-        npm test
+    - name: Run tests
+      run: npm test
